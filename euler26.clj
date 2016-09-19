@@ -1,2 +1,3 @@
-(ns euler26)
+(ns euler26
+  (:require [suffix.core :as suffix]))
 
