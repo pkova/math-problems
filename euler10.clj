@@ -7,5 +7,5 @@
 
 (->> (iterate inc 2)
      (filter prime?)
-     (take-while #(< % 2000000))
+     (take-while (partial > 2000000))
      (reduce +))
