@@ -24,19 +24,19 @@
 
 
 (defn down-product [[y x] grid]
-  (reduce * (remove nil? (map #(get-in grid %) (map (fn [e] [e x]) (range y (+ y 4)))))))
+  (reduce * (remove nil? (map (partial get-in grid) (map (fn [e] [e x]) (range y (+ y 4)))))))
 
 (defn right-product [[y x] grid]
-  (reduce * (remove nil? (map #(get-in grid %) (map (fn [e] [y e]) (range x (+ x 4)))))))
+  (reduce * (remove nil? (map (partial get-in grid) (map (fn [e] [y e]) (range x (+ x 4)))))))
 
 (defn right-diag-product [[y x] grid]
-  (reduce * (remove nil? (map #(get-in grid %)
+  (reduce * (remove nil? (map (partial get-in grid)
                               (map vector
                                    (range y (+ y 4))
                                    (range x (+ x 4)))))))
 
 (defn left-diag-product [[y x] grid]
-  (reduce * (remove nil? (map #(get-in grid %)
+  (reduce * (remove nil? (map (partial get-in grid)
                               (map vector
                                    (range y (+ y 4))
                                    (range x (- x 4) -1))))))
